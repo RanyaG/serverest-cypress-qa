@@ -1,6 +1,6 @@
 import { novoUsuario } from '../factories';
 
-const apiUrl = () => Cypress.env('apiUrl');
+const apiUrl = () => Cypress.expose('apiUrl');
 
 /**
  * Requisição genérica à API do ServeRest.
