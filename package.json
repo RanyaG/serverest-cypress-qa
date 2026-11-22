@@ -1,0 +1,28 @@
+{
+  "name": "serverest-cypress-qa",
+  "version": "1.0.0",
+  "description": "Projeto de QA para o e-commerce ServeRest: testes de API e E2E com Cypress, casos de teste documentados, bug reports e CI no GitHub Actions.",
+  "author": "Ranya Greco (https://github.com/RanyaG)",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "api:start": "serverest --nodoc --porta 3000 --timeout 3600",
+    "cy:open": "cypress open",
+    "test": "npm run test:api:local && npm run test:e2e",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\" --env apiUrl=http://localhost:3000",
+    "test:api:local": "start-server-and-test api:start http://localhost:3000/usuarios test:api",
+    "test:e2e": "cypress run --browser chrome --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "ajv": "^8.20.0",
+    "cypress": "^16.3.0",
+    "cypress-mochawesome-reporter": "^5.0.0",
+    "eslint": "^10.15.0",
+    "eslint-plugin-cypress": "^7.1.0",
+    "globals": "^17.14.0",
+    "serverest": "3.5.0",
+    "start-server-and-test": "^3.0.13"
+  }
+}
