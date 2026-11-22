@@ -15,13 +15,14 @@ module.exports = defineConfig({
   requestTimeout: 15000,
   viewportWidth: 1366,
   viewportHeight: 768,
+  // Valores não sensíveis lidos com Cypress.expose() (Cypress 16+).
+  expose: {
+    // Sobrescrito para http://localhost:3000 nos testes de API (npm run test:api:local).
+    apiUrl: 'https://serverest.dev',
+  },
   e2e: {
     // Front público do ServeRest. Ele consome a API pública em https://serverest.dev.
     baseUrl: 'https://front.serverest.dev',
-    env: {
-      // Sobrescrito para http://localhost:3000 nos testes de API (npm run test:api:local).
-      apiUrl: 'https://serverest.dev',
-    },
     specPattern: 'cypress/e2e/**/*.cy.js',
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
