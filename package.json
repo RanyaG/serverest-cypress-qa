@@ -9,7 +9,7 @@
     "api:start": "serverest --nodoc --porta 3000 --timeout 3600",
     "cy:open": "cypress open",
     "test": "npm run test:api:local && npm run test:e2e",
-    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\" --env apiUrl=http://localhost:3000",
+    "test:api": "cypress run --browser chrome --spec \"cypress/e2e/api/**/*.cy.js\" --expose apiUrl=http://localhost:3000",
     "test:api:local": "start-server-and-test api:start http://localhost:3000/usuarios test:api",
     "test:e2e": "cypress run --browser chrome --spec \"cypress/e2e/ui/**/*.cy.js\"",
     "lint": "eslint ."
